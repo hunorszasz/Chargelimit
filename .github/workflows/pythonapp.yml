@@ -4,12 +4,8 @@
 name: Python application
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   schedule:
-    - cron:  '0 8-23 * * 1-7'
+    - cron:  '0 6-23 * * *'
 
 jobs:
   build:
@@ -18,10 +14,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.8
+    - name: Set up Python 3.9
       uses: actions/setup-python@v1
       with:
-        python-version: 3.8
+        python-version: 3.9
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -33,6 +29,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        git pull
         git add docs/result.json -f
         git commit -m "Update docs/result.json" -a
-        git push "https://hunorszasz:${{ secrets.GITHUB_PERSONAL_TOKEN }}@github.com/hunorszasz/Chargelimit.git" HEAD:main --follow-tags
+        git push "https://hunsza:${{ secrets.GITHUB_PERSONAL_TOKEN }}@github.com/hunsza/Chargelimit.git" HEAD:main --follow-tags
