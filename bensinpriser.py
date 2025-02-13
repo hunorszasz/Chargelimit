@@ -33,7 +33,7 @@ avg_b_consump = 10 # 10l/100km
 
 cost = avg_b_consump * pris95Okt  # Kostnad per 100km
 
-el_pris_threshold = cost / avg_el_cosump # allt över dyrare köra på el
+el_pris_threshold = round(cost / avg_el_cosump, 2) # allt över dyrare köra på el
 
 result =  "EL_Th: " + str(el_pris_threshold) + " kr/kWh on " + datum 
 # print("EL_Th: " + str(el_pris_threshold) + "kr/kWh")
