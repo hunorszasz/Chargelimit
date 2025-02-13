@@ -32,5 +32,7 @@ jobs:
         git config --local user.name "GitHub Action"
         git pull origin main
         git add docs/result.json -f        
+        git pull origin main
         git commit -m "Update docs/result.json" -a
+        git pull origin main
         git push "https://hunsza:${{ secrets.GITHUB_PERSONAL_TOKEN }}@github.com/hunsza/Chargelimit.git" HEAD:main
